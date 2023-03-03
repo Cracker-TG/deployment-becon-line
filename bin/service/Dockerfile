@@ -1,0 +1,1 @@
+FROM crackerwinai/cr-becon-service:latest

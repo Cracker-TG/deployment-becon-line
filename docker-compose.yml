@@ -1,0 +1,20 @@
+version: '3.3'
+
+services:
+  nginx:
+    container_name: 'beconNginx'
+    build: ./bin/nginx
+    ports:
+      - "8088:80"
+    volumes:
+      - ./config/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf
+    links:
+      - service
+
+  service:
+    container_name: 'beconSerivce'
+    build: ./bin/service
+    restart: always
+    ports:
+      - "3000"
